@@ -19,8 +19,7 @@ extra:
   recipe-maintainers:
     - sanzoghenzo
 build:
-  cflags: |
-    -s RELOCATABLE=1
+  ldflags: "-Wl,-rpath,/lib:/lib/python3.13/site-packages/pymupdf:/lib/python3.13/site-packages/PyMuPDF.libs"
   exports: whole_archive
   script: |
     export PYMUPDF_SETUP_FLAVOUR=pb
