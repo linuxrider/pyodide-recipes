@@ -19,7 +19,8 @@ extra:
   recipe-maintainers:
     - sanzoghenzo
 build:
-  ldflags: "-Wl,-rpath,${DISTDIR}/pymupdf:${DISTDIR}/PyMuPDF.libs"
+  ldflags: |
+    -Wl,-rpath,/lib/python$(PYMAJOR).$(PYMINOR)/site-packages/pymupdf:/lib/python$(PYMAJOR).$(PYMINOR)/site-packages/PyMuPDF.libs
   exports: whole_archive
   script: |
     export PYMUPDF_SETUP_FLAVOUR=pb
