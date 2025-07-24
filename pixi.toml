@@ -1,0 +1,31 @@
+[workspace]
+authors = ["Johannes Hermann <linuxrider@web.de>"]
+channels = ["conda-forge"]
+name = "pyodide-recipes"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+install = "pip install ./pyodide-build && python tools/install_and_patch_emscripten.py"
+serve = "python -m http.server"
+[tasks.build-package]
+args = ["package"]
+cmd = "source ./emsdk/emsdk_env.sh && pyodide build-recipes {{ package }}"
+
+
+[dependencies]
+python = "==3.13.2"
+pip = ">=25.1.1,<26"
+nodejs= "20.*"
+ccache = "*"
+f2c = "*"
+swig = "*"
+make = "*"
+cmake = "*"
+texinfo = "*"
+autoconf = "*"
+automake = "*"
+libtool = "*"
+wget = "*"
+setuptools = "*"
+gfortran = "*"
